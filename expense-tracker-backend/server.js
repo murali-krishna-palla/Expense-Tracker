@@ -18,6 +18,8 @@ app.use(express.json());
 // =====================
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/expenses", require("./routes/expenseRoutes"));
+app.use("/api/analytics", require("./routes/analyticsRoutes"));
+
 
 // Test / Health Route
 app.get("/", (req, res) => {

@@ -1,7 +1,7 @@
 {
   "name": "expense-tracker-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Node.js/Express-based backend API for managing personal expenses with user authentication and data persistence using MongoDB.",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
