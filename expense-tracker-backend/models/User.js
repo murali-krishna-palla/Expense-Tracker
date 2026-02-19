@@ -17,6 +17,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    resetOtp: {
+      type: String,
+      default: null
+    },
+    resetOtpExpiry: {
+      type: Date,
+      default: null
+    },
     preferences: {
       currency: { type: String, default: "INR" },
       theme: { type: String, default: "light" },

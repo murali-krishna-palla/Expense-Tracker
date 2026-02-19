@@ -24,14 +24,27 @@ const addExpense = async (req, res) => {
   }
 };
 
-// 📄 Get User Expenses
+// 📄 Get User Expenses (Paginated)
 const getExpenses = async (req, res) => {
   try {
-    const expenses = await Expense.find({ user: req.user }).sort({
-      date: -1
-    });
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
 
-    res.json(expenses);
+    const skip = (page - 1) * limit;
+
+    const total = await Expense.countDocuments({ user: req.user });
+
+    const expenses = await Expense.find({ user: req.user })
+      .sort({ date: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    res.json({
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
+      expenses
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
