@@ -11,7 +11,7 @@ const app = express();
 // Middleware
 // =====================
 app.use(cors({
-    origin: "https://expense-tracker-7zjk93fah-muralis-projects-53a36327.vercel.app",
+    origin: "https://expense-tracker-seven-nu-65.vercel.app",
     credentials: true
   }));
 app.use(express.json());
